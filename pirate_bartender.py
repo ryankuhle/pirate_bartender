@@ -1,3 +1,5 @@
+import random
+
 def drink_preferences():
     """ drink_preferences
     Asks customer what their drink preferences are based on dictionary of
@@ -19,7 +21,29 @@ def drink_preferences():
     
     return answers
 
-
-
-
-a = drink_preferences()
+def drink_construct():
+    """ drink_construct
+    Takes in 'answers' dictionary as parameter. Create empty list for drink.
+    For every True in answers dictionary, find random ingredient associated
+    with drink preference and add to empty list. Return drink.
+    """
+    
+    ingredients = {
+    "strong": ["glug of rum", "slug of whisky", "splash of gin"],
+    "salty": ["olive on a stick", "salt-dusted rim", "rasher of bacon"],
+    "bitter": ["shake of bitters", "splash of tonic", "twist of lemon peel"],
+    "sweet": ["sugar cube", "spoonful of honey", "spash of cola"],
+    "fruity": ["slice of orange", "dash of cassis", "cherry on top"],
+    }
+    
+    drink = []
+    
+    # Loop through 'answers' dictionary
+    # If the attribute is True in answers, grab random value in ingredients
+    ## dictionary and add to drink list
+    
+    # Sample random code, ingredients is a dictionary, need to access values:
+    ## drink.append((random.choice(ingredients)))
+    
+    return drink
+    
