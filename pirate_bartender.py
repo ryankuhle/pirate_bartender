@@ -15,11 +15,21 @@ def drink_preferences():
     }
     
     # Create loop that asks questions.
+    """
+    while there is a key in the dictionary, ask the value as a question 
+    change the answer to the question to True or False
+    put the answer in a new dictionary called answers with the same key
+    as questions and the True or False as the value 
+    
+    if strong is yes, set answers(strong - True)
+    """
+    
+    
     # Error check for 'y' or 'n'.
     # Save answers in 'answers' dictionary as Booleans.
     ## Example: 'strong': True
     
-    return answers
+    # return answers
 
 def drink_construct():
     """ drink_construct
@@ -47,3 +57,4 @@ def drink_construct():
     
     return drink
     
+    drink_preferences()
