@@ -1,5 +1,8 @@
 import random
 
+valid  = {"yes":True, "y":True, "no":False, "n":False}
+drink_response = {"strong":False, "salty":False, "bitter":False, "sweet":False, "fruity":False}
+    
 def drink_preferences():
     """ drink_preferences
     Asks customer what their drink preferences are based on dictionary of
@@ -7,31 +10,33 @@ def drink_preferences():
     new dictionary as Boolean value. Function returns dictionary of answers.
     """
     questions = {
-    "strong": "Do ye like yer drinks strong?",
-    "salty": "Do ye like it with a salty tang?",
-    "bitter": "Are ye a lubber who likes it bitter?",
-    "sweet": "Would ye like a bit of sweetness with yer poison?",
-    "fruity": "Are ye one for a fruity finish?",
+    "strong": "Do ye like yer drinks strong? (y/n) ",
+    "salty": "Do ye like it with a salty tang? (y/n) ",
+    "bitter": "Are ye a lubber who likes it bitter? (y/n) ",
+    "sweet": "Would ye like a bit of sweetness with yer poison? (y/n) ",
+    "fruity": "Are ye one for a fruity finish? (y/n) ",
     }
     
-    # Create loop that asks questions.
-    """
-    while there is a key in the dictionary, ask the value as a question 
-    change the answer to the question to True or False
-    put the answer in a new dictionary called answers with the same key
-    as questions and the True or False as the value 
+    strong = input(questions["strong"])
+    salty = input(questions["salty"])
+    bitter = input(questions["bitter"])
+    sweet = input(questions["sweet"])
+    fruity = input(questions["fruity"])
     
-    if strong is yes, set answers(strong - True)
-    """
+    if salty in valid:
+        drink_response["salty"] = valid[salty]
+    if bitter in valid:
+        drink_response["bitter"] = valid[bitter]
+    if strong in valid:
+        drink_response["strong"] = valid[strong]
+    if fruity in valid:
+        drink_response["fruity"] = valid[fruity]
+    if sweet in valid:
+        drink_response["sweet"] = valid[sweet]
     
-    
-    # Error check for 'y' or 'n'.
-    # Save answers in 'answers' dictionary as Booleans.
-    ## Example: 'strong': True
-    
-    # return answers
+    return drink_response
 
-def drink_construct():
+def drink_construct(responses):
     """ drink_construct
     Takes in 'answers' dictionary as parameter. Create empty list for drink.
     For every True in answers dictionary, find random ingredient associated
@@ -48,13 +53,19 @@ def drink_construct():
     
     drink = []
     
-    # Loop through 'answers' dictionary
-    # If the attribute is True in answers, grab random value in ingredients
-    ## dictionary and add to drink list
-    
-    # Sample random code, ingredients is a dictionary, need to access values:
-    ## drink.append((random.choice(ingredients)))
-    
+    if responses["salty"] == True:
+        drink.append(random.choice(ingredients["salty"]))
+    if responses["bitter"] == True:
+        drink.append(random.choice(ingredients["bitter"]))
+    if responses["strong"] == True:
+        drink.append(random.choice(ingredients["strong"]))
+    if responses["fruity"] == True:
+        drink.append(random.choice(ingredients["fruity"]))
+    if responses["sweet"] == True:
+        drink.append(random.choice(ingredients["sweet"]))
+        
     return drink
     
+if __name__ == "__main__":
     drink_preferences()
+    print(drink_construct(drink_response))
